@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For You ❄️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(#cce7ff, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 350px;
+    }
+
+    h1 { color: #3b82f6; }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 20px;
+      margin: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .yes { background: #3b82f6; color: white; }
+    .maybe { background: #e5e7eb; }
+
+    .snow {
+      position: absolute;
+      top: -10px;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hey You ❄️</h1>
+    <p>
+      I wanted to do something different just for you.<br><br>
+      The world feels a little warmer when you’re around.
+    </p>
+    <h2>Will you be my girlfriend?</h2>
+    <button class="yes" onclick="yesClick()">Yes 💙</button>
+    <button class="maybe">Let me think 😅</button>
+  </div>
+
+  <script>
+    function yesClick() {
+      document.body.innerHTML = `
+        <div style="text-align:center;">
+          <h1 style="color:#3b82f6;">You said yes ❄️💙</h1>
+          <p>Guess we’re building our own fairytale now.</p>
+        </div>
+      `;
+    }
+
+    for (let i = 0; i < 50; i++) {
+      let snow = document.createElement("div");
+      snow.className = "snow";
+      snow.style.left = Math.random() * 100 + "vw";
+      snow.style.animationDuration = 5 + Math.random() * 5 + "s";
+      snow.style.opacity = Math.random();
+      snow.style.transform = `scale(${Math.random()})`;
+      document.body.appendChild(snow);
+    }
+  </script>
+</body>
+</html>
