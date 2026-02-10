@@ -1,1 +1,0 @@
-# ntmgoat23.github.io
